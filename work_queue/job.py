@@ -83,7 +83,6 @@ def queue(args, registry, mlflow, rabbitmq):
     
     mlflow['run']['id'] = mlflow_client.create_run(eid, tags={'mlflow.runName': mlflow['run']['name'], 'mlflow.user': mlflow['run']['user']}).info.run_id
     mlflow_client.set_tag(mlflow['run']['id'], 'queue_name', rabbitmq['queue_name'])
-    mlflow_client.set_tag(mlflow['run']['id'], 'queue_server', rabbitmq['server_uri'])
 
     mlflow_client.log_artifacts(mlflow['run']['id'], os.path.join(args.job_path, 'configs'), artifact_path='configs')
 

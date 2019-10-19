@@ -8,7 +8,8 @@ if __name__ == '__main__':
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(
             host=os.environ['RABBITMQ_SERVER'],
-            credentials = pika.PlainCredentials(os.environ['RABBITMQ_USER'], os.environ['RABBITMQ_PASSWORD'])
+            credentials = pika.PlainCredentials(os.environ['RABBITMQ_USER'], os.environ['RABBITMQ_PASSWORD']),
+            heartbeat=0
         )
     )
 

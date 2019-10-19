@@ -24,7 +24,7 @@ if __name__ == '__main__':
         os.system('docker build -t mlfarm/worker {}'.format(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'docker')))
         print('')
 
-    template = 'docker run {} --network=backend -v /var/run/docker.sock:/var/run/docker.sock -e RABBITMQ_SERVER={} -e RABBITMQ_USER={} -e RABBITMQ_PASSWORD={} -e RABBITMQ_QUEUE_NAME={} -e NVIDIA_VISIBLE_DEVICES={} -e WORKER_NAME={} --name {} mlfarm/worker'
+    template = 'docker run {} -e NVIDIA_VISIBLE_DEVICES="" --network=backend -v /var/run/docker.sock:/var/run/docker.sock -e RABBITMQ_SERVER={} -e RABBITMQ_USER={} -e RABBITMQ_PASSWORD={} -e RABBITMQ_QUEUE_NAME={} -e GPUIDS="{}" -e WORKER_NAME={} --name {} mlfarm/worker'
     cmd = template.format(tp, rabbitmq['server_uri'], rabbitmq['user'], rabbitmq['password'], rabbitmq['queue_name'], args.gpu_ids, args.container_name, args.container_name)
     print('> ' + cmd + '\n')
     os.system(cmd)

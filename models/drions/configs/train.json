@@ -1,0 +1,9 @@
+{
+    "lr": 0.0001,
+    "batch_size": 32,
+    "steps_per_epoch": 50,
+    "epochs": 45,
+    "early_stop_min_epochs": 15,
+    "early_stop_delta": 0.01,
+    "early_stop_max_epochs": 5
+}

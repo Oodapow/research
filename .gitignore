@@ -1,0 +1,10 @@
+/mounts
+!/mounts/minio 
+!/mounts/mlflow 
+!/mounts/notebook 
+!/mounts/rabbitmq  
+!/mounts/egistry
+*.ipynb_checkpoints
+/docker-compose.yaml
+/docker-compose.log
+__pycache__

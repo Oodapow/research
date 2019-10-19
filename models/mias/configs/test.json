@@ -1,0 +1,4 @@
+{
+    "batch_size": 8,
+    "steps_per_epoch": 2
+}
