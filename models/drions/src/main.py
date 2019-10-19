@@ -39,6 +39,15 @@ import cv2
 import re
 import os
 
+os.environ['AWSACCESSKEYID'] = 'admin'
+os.environ['AWSSECRETACCESSKEY'] = 'password'
+
+if not os.path.isdir('/data'):
+    os.mkdir('/data')
+
+print(os.system("s3fs drions /data -o url=http://minio:9000/ -o use_path_request_style"))
+print(os.listdir('/data'))
+
 def anot_to_img(expert, it):
     expert = str(expert)
     it = "{0:0=3d}".format(it)

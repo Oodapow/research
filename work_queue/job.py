@@ -8,24 +8,7 @@ import argparse
 
 from mlflow.tracking import MlflowClient
 
-
-def load_json(fn):
-    print('Loading json from {}'.format(fn))
-    with open(fn, 'r') as f:
-        data = json.load(f)
-    return data
-
-def regex_type(patern):
-    def _inner(s):
-        if not patern.match(s):
-            raise argparse.ArgumentTypeError('Not matching: "{}"'.format(patern))
-        return s
-    return _inner
-
-def abs_dir_type(s):
-    if not os.path.isdir(s):
-        raise argparse.ArgumentTypeError('Not a dir: {}'.format(s))
-    return os.path.abspath(s)
+from util import load_json, regex_type, abs_dir_type
 
 def make_mlflow_client(args, mlflow, local=False):
     if local:
@@ -41,7 +24,7 @@ def make_mlflow_client(args, mlflow, local=False):
 
 def build(args, registry):
     template = 'docker build -t {}/{} {}'
-    cmd = template.format(args.registry['uri'], args.image_name, args.job_path)
+    cmd = template.format(registry['uri'], args.image_name, args.job_path)
 
     print('Building: "{}"'.format(args.image_name))
     print('')
@@ -52,9 +35,9 @@ def build(args, registry):
 
 def push(args, registry):
     template = 'docker push {}/{}'
-    cmd = template.format(args.container_registry_uri, args.experiment_name)
+    cmd = template.format(registry['uri'], args.image_name)
 
-    print('Pushing: "{}" to "{}"'.format(args.image_name, args.container_registry_uri))
+    print('Pushing: "{}" to "{}"'.format(args.image_name, registry['uri']))
     print('')
     print('> ' + cmd)
     print('')
@@ -86,7 +69,7 @@ def run(args):
     os.chdir(currentDirectory)
 
 def queue(args, registry, mlflow, rabbitmq):
-    mlflow_client = make_mlflow_client(args)
+    mlflow_client = make_mlflow_client(args, mlflow)
     experiment = mlflow_client.get_experiment_by_name(args.image_name)
     print('Done!')
     print('')
@@ -128,7 +111,7 @@ def queue(args, registry, mlflow, rabbitmq):
     }
 
     message = json.dumps(data)
-    channel.basic_publish(exchange='', routing_key=args.rabbitmq['queue_name'], body=message, properties=pika.BasicProperties(delivery_mode=2))
+    channel.basic_publish(exchange='', routing_key=rabbitmq['queue_name'], body=message, properties=pika.BasicProperties(delivery_mode=2))
     connection.close()
     print('')
     print('Experiment scheduled!')

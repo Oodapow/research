@@ -5,6 +5,7 @@ import shlex
 import mlflow
 from subprocess import Popen, PIPE
 from threading  import Thread
+from mlflow.tracking import MlflowClient
 
 def tee(infile, *files):
     def fanout(infile, *files):
@@ -53,16 +54,13 @@ def callback(ch, method, properties, body):
     os.environ['MLFLOW_S3_ENDPOINT_URL'] = mlflow['store']['s3_uri']
     os.environ['AWS_ACCESS_KEY_ID'] = mlflow['store']['s3_key']
     os.environ['AWS_SECRET_ACCESS_KEY'] = mlflow['store']['s3_secret']
-    mlflow_client = mlflow.tracking.MlflowClient(mlflow['server']['uri'])
+    mlflow_client = MlflowClient(mlflow['server']['uri'])
     experiment = mlflow_client.get_experiment_by_name(image)
     print('Done!')
     print('')
     
-    runtime = ''
-    if os.environ['NVIDIA_VISIBLE_DEVICES'] != '-1':
-        runtime = ' --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES='+os.environ['NVIDIA_VISIBLE_DEVICES']
-    template = 'docker run{} --privileged --network=backend --rm {}/{}'
-    cmd = template.format(runtime, registry['uri'], image)
+    template = 'docker run -e NVIDIA_VISIBLE_DEVICES={} --privileged --network=backend --rm {}/{}'
+    cmd = template.format(os.environ['NVIDIA_VISIBLE_DEVICES'], registry['uri'], image)
     print('> ' + cmd)
     print('')
     
