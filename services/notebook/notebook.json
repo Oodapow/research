@@ -5,6 +5,7 @@
   ],
   "privileged": true,
   "image": "mlfarm/notebook",
+  "runtime": "nvidia",
   "build": "./services/notebook/docker",
   "environment": [
     "PYTHONPATH=/notebooks/mllib"
