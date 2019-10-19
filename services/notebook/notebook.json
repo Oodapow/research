@@ -1,0 +1,22 @@
+{
+  "depends_on": [
+    "minio",
+    "rabbitmq_server"
+  ],
+  "privileged": true,
+  "image": "mlfarm/notebook",
+  "build": "./services/notebook/docker",
+  "environment": [
+    "PYTHONPATH=/notebooks/mllib"
+  ],
+  "volumes": [
+    "./work_queue:/notebooks/work_queue",
+    "./mllib/src:/notebooks/mllib",
+    "./models:/notebooks/models",
+    "./mounts/notebook/jupyter_notebook_config.py:/root/.jupyter/jupyter_notebook_config.py",
+    "/var/run/docker.sock:/var/run/docker.sock"
+  ],
+  "ports": [
+    "8888:8888"
+  ]
+}

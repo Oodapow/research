@@ -1,0 +1,10 @@
+{
+  "depends_on": [
+    "rabbitmq_server"
+  ],
+  "image": "prom/prometheus",
+  "volumes": [
+    "./mounts/rabbitmq/rabbitmq-prometheus.yml:/etc/prometheus/prometheus.yml"
+  ],
+  "command": " --config.file=/etc/prometheus/prometheus.yml"
+}

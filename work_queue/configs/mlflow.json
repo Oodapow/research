@@ -1,0 +1,14 @@
+{
+    "run": {
+        "user": "admin",
+        "name": "default"
+    },
+    "server": {
+        "uri": "http://mlflow:5050"
+    },
+    "store": {
+        "s3_uri": "http://minio:9000",
+        "s3_key": "admin",
+        "s3_secret": "password"
+    }
+}
