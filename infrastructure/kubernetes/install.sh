@@ -1,0 +1,1 @@
+sudo apt-get install -y docker.io kubelet==1.15.11-00 kubeadm==1.15.11-00 kubectl==1.15.11-00
