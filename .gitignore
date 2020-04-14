@@ -1,0 +1,10 @@
+/legacy/mounts
+!/legacy/mounts/minio 
+!/legacy/mounts/mlflow 
+!/legacy/mounts/notebook 
+!/legacy/mounts/rabbitmq  
+!/legacy/mounts/egistry
+*.ipynb_checkpoints
+/legacy/docker-compose.yaml
+/legacy/docker-compose.log
+*__pycache__
