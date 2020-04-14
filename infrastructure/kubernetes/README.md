@@ -28,3 +28,9 @@ Reboot the system:
 ```
 sudo reboot
 ```
+
+## How to install kubernetes req?
+
+```
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/kubernetes/main.sh | sudo sh
+```
