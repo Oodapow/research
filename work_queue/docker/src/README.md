@@ -1,5 +1,0 @@
-Env Vars that command the main script:
- * RABBITMQ_SERVER
- * RABBITMQ_USER
- * RABBITMQ_PASSWORD
- * RABBITMQ_QUEUE_NAME

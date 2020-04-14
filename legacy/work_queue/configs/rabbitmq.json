@@ -1,0 +1,6 @@
+{
+    "server_uri":"rabbitmq_server",
+    "user":"admin",
+    "password":"password",
+    "queue_name":"experiments"
+}
