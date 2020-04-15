@@ -86,3 +86,29 @@ Wait for the nodes to enter the ready state:
 ```
 kubectl get nodes --watch
 ```
+
+## How to test GPUs in the cluster ?
+
+To start a pod with GPU access run the following:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/kubernetes/tests/gpu-access.yml
+```
+
+Wait for the pod `cuda-vector-add` to enter in the `Completed` state:
+
+```
+kubectl get pods --watch
+```
+
+To check the output log:
+
+```
+kubectl logs cuda-vector-add
+```
+
+If all works well the pod can be deleted like this:
+
+```
+kubectl delete pod cuda-vector-add
+```
