@@ -6,11 +6,10 @@ HELM_VERSION = '2.15.1'
 
 def run_script(url, shell):
     with Popen(['curl', '-fsSL', url], stdout=PIPE) as curl:
-        with Popen([shell], stdin=curl.stdout, stdout=PIPE) as shell:
+        with Popen(['sudo', shell], stdin=curl.stdout, stdout=PIPE) as shell:
             curl.stdout.close()
             curl.wait()
             shell.wait()
-    
 
 if __name__ == '__main__':
     os.environ['HELM_VERSION'] = HELM_VERSION
