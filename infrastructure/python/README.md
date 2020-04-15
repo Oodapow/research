@@ -10,3 +10,12 @@ Run this command:
 curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/python/os/ubuntu/main.sh | sh
 
 ```
+
+## Alias python3 to python
+
+This can be done with this command:
+
+```
+echo "alias python=python3" >> ~/.bash_aliases
+source ~/.bash_aliases
+```
