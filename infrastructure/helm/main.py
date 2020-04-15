@@ -14,4 +14,6 @@ if __name__ == '__main__':
         os.system('curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/helm//os/mac/main.sh | sudo sh')
     elif platform == "win32":
         print('Running Windows Setup')
-        os.system('curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/helm/os/windows/main.py | python')
+        import requests
+        requests.get('https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/helm/os/windows/main.py')
+        os.system(f'python -c "{requests.content}"')
