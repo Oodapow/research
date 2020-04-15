@@ -39,8 +39,16 @@ sudo reboot
 
 ## How to install kubernetes req ?
 
+This is to be run on all the cluster nodes, master and workers alike.
+
 ```
 curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/kubernetes/os/ubuntu/main.sh | sudo sh
+```
+
+For nodes with GPUs, the following command is also needed:
+
+```
+curl -fsSL https://raw.githubusercontent.com/UiPath/Infrastructure/master/ML/prereq_installer.sh | sudo bash
 ```
 
 ## How to setup kubernetes master ?
