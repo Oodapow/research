@@ -19,6 +19,18 @@ Edit the file `/etc/fstab` to comment the swap line:
 sudo vi /etc/fstab
 ```
 
+Check swap partitions:
+
+```
+sudo blkid | grep swap  
+```
+
+Mask swap partitions:
+
+```
+sudo systemctl mask dev-sd**.swap
+```
+
 Reboot the system:
 
 ```
