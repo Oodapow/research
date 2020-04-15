@@ -28,7 +28,29 @@ To install the linux curl run the following command:
 choco install curl
 ```
 
-To use the linux curl it s needed to disable the poweshell alias like this:
+Remove the curl alias!
+
+
+Skip this step if you already have a Powershell profile:
+
 ```
-Remove-item alias:curl
+New-Item $profile -force -itemtype file
+```
+
+Then edit your profile:
+
+```
+notepad $profile
+```
+
+Add the following line to it:
+
+```
+remove-item alias:curl
+```
+
+Save, close notepad and reload the profile with the command below or close and open Powershell to apply the profile:
+
+```
+. $profile
 ```
