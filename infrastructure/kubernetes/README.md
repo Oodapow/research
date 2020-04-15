@@ -5,10 +5,6 @@ To install the tools needed to deploy the kubernetes platform you need the follo
  * 2 GB RAM
  * swap off
 
-## OS versions
-
- * the scripts in this folder work only on `Ubuntu 16.04` server or desktop.
-
 ## How to turn off swap?
 
 Run the following command:
@@ -29,8 +25,14 @@ Reboot the system:
 sudo reboot
 ```
 
-## How to install kubernetes req?
+## How to install kubernetes req ?
 
 ```
-curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/kubernetes/main.sh | sudo sh
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/kubernetes/os/ubuntu/main.sh | sudo sh
+```
+
+## How to setup kubernetes master ?
+
+```
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/kubernetes/create-master.sh | sh
 ```
