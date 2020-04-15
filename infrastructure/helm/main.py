@@ -5,8 +5,8 @@ import os
 HELM_VERSION = '2.15.1'
 
 def run_script(url, shell):
-    with Popen(['curl', '-fsSL', url], stdout=PIPE) as curl:
-        with Popen(['sudo', shell], stdin=curl.stdout, stdout=PIPE) as shell:
+    with Popen(['curl', '-fsSL', url], stdout=PIPE, env=os.environ) as curl:
+        with Popen(['sudo', shell], stdin=curl.stdout, stdout=PIPE, env=os.environ) as shell:
             curl.stdout.close()
             curl.wait()
             shell.wait()
