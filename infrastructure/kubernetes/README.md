@@ -120,3 +120,13 @@ If all works well the pod can be deleted like this:
 ```
 kubectl delete pod cuda-vector-add
 ```
+
+## How to use kubectl on any machine ?
+
+`kubectl` also be used on a laptop. To do that use this command on the administrative laptop:
+
+```
+scp ADMIN_USER@MASTER_IP:/home/ADMIN_USER/.kube/config $HOME/.kube/config
+```
+
+Replace `ADMIN_USER` and `MASTER_IP` with the correct values.
