@@ -8,7 +8,7 @@ Helm should be installed on the administration machine (laptop).
 
 ## How to install helm ?
 
-To install helm on any OS you can run the following command:
+To install helm on any OS you can run (as administrator on windows) the following command:
 
 ```
 curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/helm/main.py | python
