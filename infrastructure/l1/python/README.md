@@ -7,7 +7,7 @@ Some of the scripts are writen in python
 Run this command:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/python/os/ubuntu/main.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1/python/os/ubuntu/main.sh | sh
 
 ```
 

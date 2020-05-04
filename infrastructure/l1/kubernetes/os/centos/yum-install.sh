@@ -1,0 +1,1 @@
+sudo yum install -y kubelet-1.15.11-0 kubeadm-1.15.11-0 kubectl-1.15.11-0
