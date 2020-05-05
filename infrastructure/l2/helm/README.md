@@ -14,6 +14,10 @@ To install helm on any OS you can run (as administrator on windows) the followin
 curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/main.py | python
 ```
 
+## How to init helm ?
+
+
+
 ### Windows specifics
 
 To install on windows we need `curl` and `choco`
