@@ -19,7 +19,7 @@ curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastruct
 Add service account and binding for `tiller`:
 
 ```
-kubectl apply -f https://github.com/Oodapow/research/blob/master/infrastructure/l2/helm/yml/config.yml
+kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/yml/config.yml
 ```
 
 Run the helm init command:
