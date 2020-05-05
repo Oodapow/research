@@ -1,1 +1,1 @@
-apt install nfs-kernel-server
+apt install -y nfs-kernel-server
