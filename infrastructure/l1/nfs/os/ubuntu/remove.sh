@@ -1,2 +1,2 @@
-apt remove -y nfs-kernel-server
-rm /etc/exports
+apt remove -y nfs-kernel-server && \
+rm -f /etc/exports
