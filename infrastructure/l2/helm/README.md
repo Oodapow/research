@@ -16,7 +16,17 @@ curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastruct
 
 ## How to init helm ?
 
+Add service account and binding for `tiller`:
 
+```
+kubectl apply -f https://github.com/Oodapow/research/blob/master/infrastructure/l2/helm/yml/config.yml
+```
+
+Run the helm init command:
+
+```
+helm init --service-account tiller
+```
 
 ### Windows specifics
 
