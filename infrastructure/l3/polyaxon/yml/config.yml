@@ -3,6 +3,8 @@ user:
   email: "petre.v.alexandru@gmail.com"
   password: "rootpassword"
 
+serviceType: NodePort
+
 broker: redis
 
 rabbitmq-ha:
