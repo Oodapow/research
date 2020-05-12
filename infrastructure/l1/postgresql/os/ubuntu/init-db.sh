@@ -1,0 +1,1 @@
+printf "create database polyaxon;\ncreate user polyaxon with encrypted password '$1';grant all privileges on database polyaxon to polyaxon;\n" | sudo -u postgres psql

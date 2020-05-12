@@ -9,8 +9,14 @@ rabbitmq-ha:
 
 postgresql:
   persistence:
-    enabled: true
-    existingClaim: sql
+    enabled: false
+
+externalServices:
+  postgresql:
+    user: polyaxon
+    password: polyaxon
+    database: polyaxon
+    host: 192.168.0.178
 
 persistence:
   data:

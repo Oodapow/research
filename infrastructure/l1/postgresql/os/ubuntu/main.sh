@@ -1,0 +1,2 @@
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1/postgresql/os/ubuntu/apt-install.sh | bash && \
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1/postgresql/os/ubuntu/init-db.sh | bash -s -- $1
