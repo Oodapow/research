@@ -13,6 +13,9 @@ The tools are divided into 3 Layers:
  * cluster layer
  * application layer
 
+
+There are no dependencies in usage for tools on the same layer, but L2/L3 tools will require the usage of most lower level tools. For the best experience all tools should be installed. The order of installation is the order of the layers: all tools from L1, then all tools from L2, then all tools from L3.
+
 ### Machine Layer
 
 The machine layer contains any infrastructure component that requires you to `ssh` into a specific machine for the setup. In contrast, the cluster layer and application layer interact with the machines with the kubernetes API, this can be done directly form a well configured laptop.
