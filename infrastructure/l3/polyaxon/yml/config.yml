@@ -1,15 +1,15 @@
-rbac:
-  enabled: false
-
-serviceType: NodePort
+user:
+  username: "root"
+  email: "petre.v.alexandru@gmail.com"
+  password: "rootpassword"
 
 broker: redis
+
 rabbitmq-ha:
   enabled: false
 
 postgresql:
-  persistence:
-    enabled: false
+  enabled: false
 
 externalServices:
   postgresql:
