@@ -42,7 +42,7 @@ sudo reboot
 This is to be run on all the cluster nodes, master and workers alike.
 
 ```
-curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1/kubernetes/os/ubuntu/main.sh | sudo sh
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1-machine/kubernetes/os/ubuntu/main.sh | sudo sh
 ```
 
 For nodes with GPUs, the following command is also needed:
@@ -54,7 +54,7 @@ curl -fsSL https://raw.githubusercontent.com/UiPath/Infrastructure/master/ML/pre
 ## How to setup kubernetes master ?
 
 ```
-curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1/kubernetes/create-master.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1-machine/kubernetes/create-master.sh | sh
 ```
 
 To watch the status of the master pods:
@@ -100,7 +100,7 @@ kubectl get nodes --watch
 To start a pod with GPU access run the following:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1/kubernetes/tests/gpu-access.yml
+kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l1-machine/kubernetes/tests/gpu-access.yml
 ```
 
 Wait for the pod `cuda-vector-add` to enter in the `Completed` state:

@@ -19,13 +19,13 @@ if __name__ == '__main__':
 
     if platform == "linux" or platform == "linux2":
         print('Running Ubuntu Setup')
-        url = 'https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/os/ubuntu/main.sh'
+        url = 'https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2-cluster/helm/os/ubuntu/main.sh'
     elif platform == "darwin":
         print('Running macOS Setup')
-        url = 'https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/os/mac/main.sh'
+        url = 'https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2-cluster/helm/os/mac/main.sh'
     elif platform == "win32":
         print('Running Windows Setup')
-        url = 'https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/os/windows/main.py'
+        url = 'https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2-cluster/helm/os/windows/main.py'
         shell = 'python'
     
     run_script(url, shell)

@@ -9,7 +9,7 @@ To set up the Polyaxon platform we need to do the following:
 To create the PVC needed for the platform run the following command:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3/polyaxon/yml/persist.yml
+kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/persist.yml
 ```
 
 ## Install with Helm
@@ -17,7 +17,7 @@ kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infra
 To install polyaxon with helm run the follwing command:
 
 ```
- helm install polyaxon/polyaxon --name=polyaxon --namespace=polyaxon -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3/polyaxon/yml/config.yml
+ helm install polyaxon/polyaxon --name=polyaxon --namespace=polyaxon -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/config.yml
 ```
 
 ## Issues

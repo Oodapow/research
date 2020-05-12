@@ -11,7 +11,7 @@ Helm should be installed on the administration machine (laptop).
 To install helm on any OS you can run (as administrator on windows) the following command:
 
 ```
-curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/main.py | python
+curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2-cluster/helm/main.py | python
 ```
 
 ## How to init helm ?
@@ -19,7 +19,7 @@ curl -fsSL https://raw.githubusercontent.com/Oodapow/research/master/infrastruct
 Add service account and binding for `tiller`:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2/helm/yml/config.yml
+kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l2-cluster/helm/yml/config.yml
 ```
 
 Run the helm init command:
