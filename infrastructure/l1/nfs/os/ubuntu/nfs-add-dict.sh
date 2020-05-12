@@ -1,1 +1,1 @@
-printf "%s %s(rw,sync,no_subtree_check)" $1 $2 >> /etc/exports
+printf "%s %s(rw,sync,no_subtree_check)\n" $1 $2 >> /etc/exports

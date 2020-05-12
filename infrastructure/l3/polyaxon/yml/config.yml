@@ -1,0 +1,38 @@
+rbac:
+  enabled: false
+
+serviceType: NodePort
+
+broker: redis
+rabbitmq-ha:
+  enabled: false
+
+postgresql:
+  persistence:
+    enabled: true
+    existingClaim: sql
+
+persistence:
+  data:
+    coco:
+      mountPath: "/data/coco"
+      existingClaim: data-coco
+    imgnet:
+      mountPath: "/data/imgnet"
+      existingClaim: data-imgnet
+    kaggle:
+      mountPath: "/data/kaggle"
+      existingClaim: data-kaggle
+    research:
+      mountPath: "/data/research"
+      existingClaim: data-research
+  outputs:
+    outputs:
+      mountPath: "/artefacts"
+      existingClaim: artefacts
+  logs:
+    mountPath: "/logs"
+    existingClaim: logs
+  repos:
+    mountPath: "/repos"
+    existingClaim: repos

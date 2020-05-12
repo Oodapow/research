@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: nfs-pod-provisioner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: nfs-pod-provisioner
+    spec:
+      serviceAccountName: nfs-pod-provisioner-sa
+      containers:
+        - name: nfs-pod-provisioner
+          image: quay.io/external_storage/nfs-client-provisioner:latest
+          volumeMounts:
+            - name: nfs-provisioner-v
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: nfs-provisioner
+            - name: NFS_SERVER
+              value: 192.168.0.178 # Ip of the NFS SERVER
+            - name: NFS_PATH
+              value: /nfs/data
+      volumes:
+       - name: nfs-provisioner-v
+         nfs:
+           server: 192.168.0.178 # Ip of the NFS SERVER
+           path: /nfs/data
