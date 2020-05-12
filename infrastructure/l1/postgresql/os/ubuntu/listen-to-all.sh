@@ -16,3 +16,8 @@ if grep -q "^listen_addresses =.*" $1 ; then
     echo "Adding correct one"
     sed -i "/^#listen_addresses/a listen_addresses = '\*'" $1
 fi
+
+pg_hba=$(find / -name "pg_hba.conf" -print -quit)
+echo "host    all             all              0.0.0.0/0                       md5" >> pg_hba
+echo "host    all             all              ::/0                            md5" >> pg_hba
+printf "$pg_hba edited."
