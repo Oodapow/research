@@ -68,3 +68,8 @@ Save, close notepad and reload the profile with the command below or close and o
 ```
 . $profile
 ```
+
+I case that fails due to set-executionpolicy remotesigned on the system run the following command in an `administrative` console:
+```
+set-executionpolicy remotesigned
+```
