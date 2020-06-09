@@ -1,0 +1,32 @@
+---
+version: 1
+
+kind: experiment
+
+framework: pytorch
+
+environment:
+  resources:
+    gpu:
+      requests: 1
+      limits: 1
+    cpu:
+      requests: 2
+      limits: 2
+
+params:
+  epochs: 100
+  learning_rate: 1
+  batch_size: 1000
+
+build:
+  image: pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime
+  build_steps:
+    - pip install --no-cache-dir -U polyaxon-client==0.6.1
+    - pip install tensorboard
+
+run:
+  cmd: python projects/siim-isic-melanoma-classification-2020/src/main.py --epochs={{ epochs }}\
+         --lr={{ learning_rate }} \
+         --batch-size={{ batch_size }} \
+         --test-batch-size={{ batch_size }}
