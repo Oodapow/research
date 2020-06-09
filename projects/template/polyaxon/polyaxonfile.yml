@@ -24,6 +24,7 @@ build:
   build_steps:
     - pip install --no-cache-dir -U polyaxon-client==0.6.1
     - pip install matplotlib
+    - pip install pandas
     - pip install tensorboard
 
 run:
