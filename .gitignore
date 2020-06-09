@@ -8,3 +8,4 @@
 /legacy/docker-compose.yaml
 /legacy/docker-compose.log
 *__pycache__
+*.polyaxon*
