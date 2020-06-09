@@ -9,7 +9,7 @@ To set up the Polyaxon platform we need to do the following:
 To create the PVC needed for the platform run the following command:
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/persist.yml
+kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/persist.yml -n polyaxon
 ```
 
 ## Install with Helm
