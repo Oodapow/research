@@ -15,6 +15,11 @@ ingress:
   annotations:
     ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/add-base-url: "true"
+    ingress.kubernetes.io/proxy-connect-timeout: "600"
+    ingress.kubernetes.io/proxy-read-timeout: "600"
+    ingress.kubernetes.io/proxy-send-timeout: "600"
+    ingress.kubernetes.io/send-timeout: "600"
+    ingress.kubernetes.io/proxy-body-size: 4G
 
 broker: redis
 
