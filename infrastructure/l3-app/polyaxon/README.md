@@ -14,10 +14,22 @@ kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infra
 
 ## Install with Helm
 
+Add helm repo:
+
+```
+helm repo add polyaxon https://charts.polyaxon.com
+```
+
+Update helm charts:
+
+```
+helm repo update
+```
+
 To install polyaxon with helm run the follwing command:
 
 ```
- helm install polyaxon/polyaxon --name=polyaxon --namespace=polyaxon -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/config.yml
+helm install polyaxon/polyaxon --name=polyaxon --namespace=polyaxon -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/config.yml
 ```
 
 ## Issues

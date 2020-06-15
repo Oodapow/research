@@ -5,6 +5,19 @@ user:
 
 serviceType: NodePort
 
+ssl:
+  enabled: true  
+  secretName: 'polyaxon-cert'
+
+api:
+  service:
+    name: api
+    type: ClusterIP
+    port: 443
+    targetPort: 80
+    nodePort: 31811
+    annotations: {}
+
 broker: redis
 
 rabbitmq-ha:
