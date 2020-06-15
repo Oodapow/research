@@ -13,11 +13,18 @@ ingress:
     hosts:
       - polyaxon.mlfarm.net
   annotations:
-    ingress.kubernetes.io/proxy-connect-timeout: "600"
-    ingress.kubernetes.io/proxy-read-timeout: "600"
-    ingress.kubernetes.io/proxy-send-timeout: "600"
-    ingress.kubernetes.io/send-timeout: "600"
-    ingress.kubernetes.io/proxy-body-size: 4G
+
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    nginx.ingress.kubernetes.io/send-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-body-size: 4G
+    nginx.ingress.kubernetes.io/proxy-buffering: "on"
+    nginx.ingress.kubernetes.io/proxy-buffers-number: "16"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "64k"
 
 broker: redis
 
