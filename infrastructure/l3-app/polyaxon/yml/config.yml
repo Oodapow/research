@@ -3,20 +3,18 @@ user:
   email: "petre.v.alexandru@gmail.com"
   password: "rootpassword"
 
-serviceType: NodePort
+serviceType: ClusterIP
 
-ssl:
-  enabled: true  
-  secretName: 'polyaxon-cert'
-
-api:
-  service:
-    name: api
-    type: ClusterIP
-    port: 443
-    targetPort: 80
-    nodePort: 31811
-    annotations: {}
+ingress:
+  enabled: true
+  hostName: polyaxon.mlfarm.net
+  tls:
+  - secretName: polyaxon.mlfarm-tls
+    hosts:
+      - polyaxon.mlfarm.net
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/add-base-url: "true"
 
 broker: redis
 
