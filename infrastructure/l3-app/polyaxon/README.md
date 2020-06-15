@@ -12,7 +12,26 @@ To create the PVC needed for the platform run the following command:
 kubectl apply -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/persist.yml -n polyaxon
 ```
 
-## Install with Helm
+## Create TLS Secret
+
+Copy files:
+
+```
+scp .\ca_bundle.crt oodapow@192.168.0.108:/home/oodapow/tls/polyaxon/ca_bundle.crt
+scp .\certificate.crt oodapow@192.168.0.108:/home/oodapow/tls/polyaxon/certificate.crt
+scp .\private.key oodapow@192.168.0.108:/home/oodapow/tls/polyaxon/private.key
+```
+
+Merge files on server:
+```
+for f in certificate.crt ca_bundle.crt; do (cat "${f}"; echo) >> mcertificate.crt; done
+```
+
+```
+kubectl create secret tls mlfarm-tls -n polyaxon --key private.key --cert mcertificate.crt
+```
+
+## Manage with Helm
 
 Add helm repo:
 
@@ -30,6 +49,22 @@ To install polyaxon with helm run the follwing command:
 
 ```
 helm install polyaxon/polyaxon --name=polyaxon --namespace=polyaxon -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/config.yml
+```
+
+Update chart:
+
+```
+helm upgrade polyaxon polyaxon/polyaxon -f https://raw.githubusercontent.com/Oodapow/research/master/infrastructure/l3-app/polyaxon/yml/config.yml
+```
+
+Uninstall chart:
+```
+helm del --purge polyaxon
+```
+
+Status:
+```
+helm status polyaxon
 ```
 
 ## Issues
