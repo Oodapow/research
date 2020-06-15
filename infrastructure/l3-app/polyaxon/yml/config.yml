@@ -13,7 +13,6 @@ ingress:
     hosts:
       - polyaxon.mlfarm.net
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/add-base-url: "true"
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
