@@ -9,7 +9,7 @@ ingress:
   enabled: true
   hostName: polyaxon.mlfarm.net
   tls:
-  - secretName: polyaxon.mlfarm-tls
+  - secretName: mlfarm-tls
     hosts:
       - polyaxon.mlfarm.net
   annotations:
