@@ -1,3 +1,6 @@
 controller:
     service:
         type: NodePort
+        nodePorts:
+            http: 31815
+            https: 31816
