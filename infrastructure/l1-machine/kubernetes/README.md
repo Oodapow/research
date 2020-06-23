@@ -130,3 +130,20 @@ scp ADMIN_USER@MASTER_IP:/home/ADMIN_USER/.kube/config $HOME/.kube/config
 ```
 
 Replace `ADMIN_USER` and `MASTER_IP` with the correct values.
+
+## How to remove node from cluster ?
+
+List node and watch for the target name:
+```
+kubectl get nodes
+```
+
+Drain the node (stop assigning pods to that node and remove current ones):
+```
+kubectl drain NODE_NAME
+```
+
+Remove node from the cluster:
+```
+kubectl delete node NODE_NAME
+```
