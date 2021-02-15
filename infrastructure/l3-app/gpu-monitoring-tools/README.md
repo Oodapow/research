@@ -20,6 +20,6 @@ helm install gpu-helm-charts/kube-prometheus --name kube-prometheus --namespace 
 ## GPU metrics Dashboard
 ```
 # Forward the port for Grafana.
-kubectl -n monitoring port-forward $(kubectl get pods -n monitoring -lapp=kube-prometheus-grafana -ojsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}') 3000
+kubectl -n monitoring port-forward $(kubectl get pods -n monitoring -lapp=kube-prometheus-grafana -ojsonpath="{range .items[*]}{.metadata.name}{'\n'}{end}") 3000
 # Open in browser http://localhost:3000 and go to Nodes Dashboard
 ```
